@@ -12,4 +12,10 @@ public interface JobRepo extends JpaRepository<Job, Long> {
 
     List<Job> findByUserEmail(String email);
 
+    int countByUserEmail(String email);
+
+    int countByUserEmailAndStatus(String email, String status);
+
+    int countByUserEmailAndCompany(String email, String company);
+
 }

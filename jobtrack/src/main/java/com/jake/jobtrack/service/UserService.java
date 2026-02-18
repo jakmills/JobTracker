@@ -12,7 +12,16 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
+    
     public User newUser(User user) {
         return userRepo.save(user);
+    }
+
+    public User removeUser(Long id) {
+        User user = userRepo.findById(id).orElse(null);
+        if (user != null) {
+            userRepo.delete(user);
+        }
+        return user;
     }
 }
