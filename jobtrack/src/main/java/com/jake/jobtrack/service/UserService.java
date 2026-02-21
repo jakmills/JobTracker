@@ -14,6 +14,10 @@ public class UserService {
 
     
     public User newUser(User user) {
+        if(user == null) {
+            throw new IllegalArgumentException("User cannot be null");
+        }
+        
         return userRepo.save(user);
     }
 
